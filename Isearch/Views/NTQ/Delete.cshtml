@@ -1,0 +1,87 @@
+﻿@model Isearch.Models.NTQ
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>NTQ</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.总体满意度)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.总体满意度)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.部门)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.部门)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.无线稳定性)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.无线稳定性)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.无线下载速度)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.无线下载速度)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.无线打开速度)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.无线打开速度)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.无线可访问性)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.无线可访问性)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.有线稳定性)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.有线稳定性)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.有线下载速度)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.有线下载速度)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.有线打开速度)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.有线打开速度)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.有线可访问性)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.有线可访问性)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.updatetime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.updatetime)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="姓名" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

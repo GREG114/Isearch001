@@ -1,0 +1,310 @@
+﻿@model Isearch.Models.TrainingFeedBack
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>培训反馈表</h1>
+<hr />
+<div class="row bg-light">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TrainingID" class="control-label">请选择您参加的培训</label>
+                <select asp-for="TrainingID" class="form-control" asp-items="ViewBag.TrainingID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="真实培训时间" class="control-label">实际培训时间(小时)</label>
+                <input asp-for="真实培训时间" class="form-control" value="0" />
+                <span asp-validation-for="真实培训时间" class="text-danger"></span>
+            </div>
+        
+            <div class="row col-12">
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb1" class="control-label ">本次课程内容难度适中，易于理解</label>
+                    <span asp-validation-for="fb1" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input class="nav navbar-nav" type="radio" asp-for="fb1" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb1" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb1" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb1" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4 card bg-white">
+                    <label asp-for="fb2" class="control-label ">本次课程内容目标明确，逻辑清晰</label>
+                    <span asp-validation-for="fb2" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb2" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb2" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb2" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb2" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4 card bg-white">
+                    <label asp-for="fb3" class="control-label ">   本次课程时间设置情况：</label>
+                    <span asp-validation-for="fb3" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb3" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb3" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb3" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb3" value="4">很好
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-12">
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb4" class="control-label "> 本次课程案例说明：</label>
+                    <span asp-validation-for="fb4" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb4" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb4" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb4" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb4" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb5" class="control-label ">讲师准备充分情况：</label>
+                    <span asp-validation-for="fb5" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb5" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb5" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb5" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb5" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb6" class="control-label ">讲师表达清楚，态度友善</label>
+                    <span asp-validation-for="fb6" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb6" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb6" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb6" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb6" value="4">很好
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row col-12">
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb7" class="control-label ">  讲师对进度对把控能力：</label>
+                    <span asp-validation-for="fb7" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb7" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb7" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb7" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb7" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb8" class="control-label "> 讲师对问题解答：</label>
+                    <span asp-validation-for="fb8" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb8" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb8" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb8" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb8" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb9" class="control-label ">你获得了可以在工作上应用的一些技能和技术</label>
+                    <span asp-validation-for="fb9" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb9" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb9" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb9" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb9" value="4">很好
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row col-12">
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb10" class="control-label ">你参加这类培训的意愿是：</label>
+                    <span asp-validation-for="fb10" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb10" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb10" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb10" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb10" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4  card bg-white ">
+                    <label asp-for="fb11" class="control-label ">本次培训课程环境、服务、秩序</label>
+                    <span asp-validation-for="fb11" class="text-danger"></span>
+                    <div class="list-group ">
+                        <label>
+                            <input type="radio" asp-for="fb11" value="1">差
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb11" value="2">一般
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb11" value="3">好
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="fb11" value="4">很好
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4  card bg-white ">
+                    <div class="form-group">
+                        <label asp-for="fb21" class="control-label">
+                            培训参与的方式：
+                        </label> <br />
+                        <span asp-validation-for="fb21" class="text-danger"></span>
+                        <div class="list-group ">
+                            <label>
+                                <input type="radio" asp-for="fb21" value="现场">现场
+                            </label>
+                            <label>
+                                <input type="radio" asp-for="fb21" value="远程">远程
+                            </label>
+                            <label>
+                                <input type="radio" asp-for="fb21" value="视频回看">视频回看
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+               
+            </div>
+
+
+
+
+            <!--文字部分-->
+            <div class="form-group">
+                <label asp-for="fb16" class="control-label">
+                    你认为本次课程内容方面还有哪些地方需要改进？
+                </label>
+                <input asp-for="fb16" class="form-control" />
+                <span asp-validation-for="fb16" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fb17" class="control-label">
+                    你认为讲师哪些方面需要改进？
+                </label>
+                <input asp-for="fb17" class="form-control" />
+                <span asp-validation-for="fb17" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fb18" class="control-label">
+                    你是否有其他培训建议或者需求？
+                </label>
+                <input asp-for="fb18" class="form-control" />
+                <span asp-validation-for="fb18" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fb19" class="control-label">
+                    你还希望公司安排哪些方面的培训内容？
+                </label>
+                <input asp-for="fb19" class="form-control" />
+                <span asp-validation-for="fb19" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fb20" class="control-label">
+                    填表人
+                </label>
+                <input asp-for="fb20" class="form-control" />
+                <span asp-validation-for="fb20" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="提交" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,84 @@
+﻿@model Isearch.Models.NTQ
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>NTQ</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="姓名" />
+            <div class="form-group">
+                <label asp-for="总体满意度" class="control-label"></label>
+                <input asp-for="总体满意度" class="form-control" />
+                <span asp-validation-for="总体满意度" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="部门" class="control-label"></label>
+                <input asp-for="部门" class="form-control" />
+                <span asp-validation-for="部门" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="无线稳定性" class="control-label"></label>
+                <input asp-for="无线稳定性" class="form-control" />
+                <span asp-validation-for="无线稳定性" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="无线下载速度" class="control-label"></label>
+                <input asp-for="无线下载速度" class="form-control" />
+                <span asp-validation-for="无线下载速度" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="无线打开速度" class="control-label"></label>
+                <input asp-for="无线打开速度" class="form-control" />
+                <span asp-validation-for="无线打开速度" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="无线可访问性" class="control-label"></label>
+                <input asp-for="无线可访问性" class="form-control" />
+                <span asp-validation-for="无线可访问性" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="有线稳定性" class="control-label"></label>
+                <input asp-for="有线稳定性" class="form-control" />
+                <span asp-validation-for="有线稳定性" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="有线下载速度" class="control-label"></label>
+                <input asp-for="有线下载速度" class="form-control" />
+                <span asp-validation-for="有线下载速度" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="有线打开速度" class="control-label"></label>
+                <input asp-for="有线打开速度" class="form-control" />
+                <span asp-validation-for="有线打开速度" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="有线可访问性" class="control-label"></label>
+                <input asp-for="有线可访问性" class="form-control" />
+                <span asp-validation-for="有线可访问性" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="updatetime" class="control-label"></label>
+                <input asp-for="updatetime" class="form-control" />
+                <span asp-validation-for="updatetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

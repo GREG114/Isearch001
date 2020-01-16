@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Isearch.Models.TrainingFeedBack>
+
+@{
+    ViewData["Title"] = "培训反馈";
+}
+<script>
+    function search() {
+        var test = document.getElementById('str').value
+        window.location = '/tfb/index?str=' + test
+    }
+    window.onload = function () {
+        document.getElementById('str').focus()
+    }
+    function ext() {
+         window.location = '/tfb/getxls'
+    }
+</script>
+<h1>数据汇总</h1>
+<div class="row col-md-5">
+    <input id="str" onkeypress="search()" />
+    <button onclick="search()" class="btn btn-outline-dark">搜索</button>
+    <a class="btn btn-outline-success" asp-action="Create">创建</a>
+</div>
+
+<div class="row col-md-5">
+    <button onclick="ext()" class="btn btn-outline-warning">导出全部</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                选项1
+            </th>
+            <th>
+                选项2
+            </th>
+            <th>
+                选项3
+            </th>
+            <th>
+                选项4
+            </th>
+            <th>
+                选项5
+            </th>
+            <th>
+                选项6
+            </th>
+            <th>
+                选项7
+            </th>
+            <th>
+                选项8
+            </th>
+            <th>
+                选项9
+            </th>
+            <th>
+                选项10
+            </th>
+            <th>
+                选项11
+            </th>
+            <th>
+                课程信息
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb5)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb6)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb7)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb8)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb9)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb10)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fb11)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Training.整合信息)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">详情</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

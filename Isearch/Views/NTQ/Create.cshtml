@@ -1,0 +1,164 @@
+﻿@model Isearch.Models.NTQ
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>网络质量调研</h1>
+
+<h4 class="btn btn-outline-dark">请尽可能贴近实情选择，可重复提交</h4>
+<hr />
+<div class="row card bg-light">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <label asp-for="总体满意度" class="control-label"></label>
+                    <select asp-for="总体满意度" class="form-control">
+                        <option>满意</option>
+                        <option>不满意</option>
+                    </select>
+                    <span asp-validation-for="总体满意度" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-3">
+                    <label asp-for="所在办公区域" class="control-label"></label>
+                    <select asp-for="所在办公区域" class="form-control">
+                        <option>上海办公室</option>
+                        <option>南京办公室</option>
+                    </select>
+                    <span asp-validation-for="所在办公区域" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-3">
+                    <label asp-for="部门" class="control-label"></label>
+                    <select asp-for="部门" class="form-control">
+                        <option>销售部</option>
+                        <option>商务部</option>
+                        <option>研发部</option>
+                        <option>市场运营部</option>
+                        <option>南京运营部</option>
+                        <option>人事行政部</option>
+                        <option>财务部</option>
+                        <option>质量及安全管理部</option>
+                    </select>
+                    <span asp-validation-for="部门" class="text-danger"></span>
+                </div>
+         
+            </div>
+    
+            <div class="row ">
+                <div class="form-group col-lg-2">
+                    <label asp-for="无线稳定性" class="control-label"></label>
+                    <select asp-for="无线稳定性" class="form-control">
+                        <option>全天漫游不掉线</option>
+                        <option>全天不掉线</option>
+                        <option>偶尔掉线</option>
+                        <option>经常掉线</option>
+                        <option>频繁掉线</option>
+                    </select> <span asp-validation-for="无线稳定性" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="无线下载速度" class="control-label"></label>  <select asp-for="无线下载速度" class="form-control">
+                        <option>飞快</option>
+                        <option>快</option>
+                        <option>一般</option>
+                        <option>慢</option>
+                        <option>无法忍受</option>
+                    </select>
+                    <span asp-validation-for="无线下载速度" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="无线打开速度" class="control-label"></label>  <select asp-for="无线打开速度" class="form-control">
+                        <option>飞快</option>
+                        <option>快</option>
+                        <option>一般</option>
+                        <option>慢</option>
+                        <option>无法忍受</option>
+                    </select>
+                    <span asp-validation-for="无线打开速度" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="无线可访问性" class="control-label"></label>
+                    <select asp-for="无线可访问性" class="form-control">
+                        <option>基本都能开</option>
+                        <option>七成能开</option>
+                        <option>一半能开</option>
+                        <option>少量能开</option>
+                        <option>几乎不开</option>
+                    </select>
+                    <span asp-validation-for="无线可访问性" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="SSID" class="control-label">无线网络名称</label>
+                    <select asp-for="SSID" class="form-control">
+                        <option>isearch_5G</option>
+                        <option>isearch</option>
+                    </select>
+                    <span asp-validation-for="SSID" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg-2">
+                    <label asp-for="有线稳定性" class="control-label"></label>
+                    <select asp-for="有线稳定性" class="form-control">
+                        <option>全天漫游不掉线</option>
+                        <option>全天不掉线</option>
+                        <option>偶尔掉线</option>
+                        <option>经常掉线</option>
+                        <option>频繁掉线</option>
+                    </select>
+                    <span asp-validation-for="有线稳定性" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="有线下载速度" class="control-label"></label>
+                    <select asp-for="有线下载速度" class="form-control">
+                        <option>飞快</option>
+                        <option>快</option>
+                        <option>一般</option>
+                        <option>慢</option>
+                        <option>无法忍受</option>
+                    </select>
+                    <span asp-validation-for="有线下载速度" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="有线打开速度" class="control-label"></label>
+                    <select asp-for="有线打开速度" class="form-control">
+                        <option>飞快</option>
+                        <option>快</option>
+                        <option>一般</option>
+                        <option>慢</option>
+                        <option>无法忍受</option>
+                    </select>
+                    <span asp-validation-for="有线打开速度" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="有线可访问性" class="control-label"></label>
+                    <select class="form-control" asp-for="有线可访问性">
+                        <option>基本都能开</option>
+                        <option>七成能开</option>
+                        <option>一半能开</option>
+                        <option>少量能开</option>
+                        <option>几乎不开</option>
+                    </select>
+                    <span asp-validation-for="有线可访问性" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label asp-for="是否使用有线" class="control-label"></label>
+                    <input asp-for="是否使用有线" class="form-control" />
+                    <span asp-validation-for="有线可访问性" class="text-danger"></span>
+                </div>
+            </div>
+              
+
+                <div class="form-group">
+                    <input type="submit" value="提交" class="btn btn-danger" />
+                </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

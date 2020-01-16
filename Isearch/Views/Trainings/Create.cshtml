@@ -1,0 +1,47 @@
+﻿@model Isearch.Models.Training
+
+@{
+    ViewData["Title"] = "录入培训信息";
+}
+
+    <h1>录入培训信息</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="课程名称" class="control-label"></label>
+                <input asp-for="课程名称" class="form-control" />
+                <span asp-validation-for="课程名称" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="培训时长" class="control-label"></label>
+                <input asp-for="培训时长" class="form-control" />
+                <span asp-validation-for="培训时长" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="培训讲师" class="control-label"></label>
+                <input asp-for="培训讲师" class="form-control" />
+                <span asp-validation-for="培训讲师" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="培训时间" class="control-label"></label>
+                <input asp-for="培训时间" type="date" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+                <span asp-validation-for="培训时间" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

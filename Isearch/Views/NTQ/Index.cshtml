@@ -1,0 +1,141 @@
+﻿@model IEnumerable<Isearch.Models.NTQ>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<br />
+
+<script type="text/javascript">
+    function test() {
+        var obj = document.getElementById('areaselect');
+   
+        var index = obj.selectedIndex
+        var text = obj.options[index].value
+        var date = $("#date1").val()
+        window.location='/ntq/index?order='+date+'&bangong='+text
+    }
+</script>
+
+
+
+<div class="row card bg-light col-8">
+    <div >
+        <input id="date1" type="date" class="form-control col-4" value="@DateTime.Now.AddDays(-7).Date.ToString("yyyy-MM-dd")" />
+        <select class="custom-select form-control col-4" id="areaselect">
+            <option>南京办公室</option>
+            <option>上海办公室</option>
+        </select>
+        <button class="nav-link text-dark btn btn-outline-dark" onclick="test()">查询</button>
+
+    </div>
+  
+
+</div>
+
+  
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.姓名)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.所在办公区域)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.总体满意度)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.部门)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.无线稳定性)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.无线下载速度)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.无线打开速度)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.无线可访问性)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.是否使用有线)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.有线稳定性)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.有线下载速度)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.有线打开速度)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.有线可访问性)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.updatetime)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.姓名)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.所在办公区域)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.总体满意度)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.部门)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.无线稳定性)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.无线下载速度)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.无线打开速度)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.无线可访问性)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.是否使用有线)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.有线稳定性)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.有线下载速度)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.有线打开速度)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.有线可访问性)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.updatetime)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.姓名">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.姓名">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.姓名">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
