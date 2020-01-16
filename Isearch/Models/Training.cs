@@ -16,6 +16,7 @@ namespace Isearch.Models
         public DateTime 培训时间 { get; set; }
         IEnumerable<TrainingFeedBack> TrainingFeedBacks { get; set; }
         public string 整合信息 { get; set; }
+        public bool 关闭 { get; set; }
     }
 
     public class TrainingFeedBack
@@ -53,8 +54,6 @@ namespace Isearch.Models
         public string fb18 { get; set; }
         public string fb19 { get; set; }
         public string fb20 { get; set; }
-        [Required(ErrorMessage ="参与方式必填")]
-        public string fb21 { get; set; }
         public string fb22 { get; set; }
         public string fb23 { get; set; }
         public string fb24 { get; set; }
@@ -64,6 +63,9 @@ namespace Isearch.Models
         public string fb28 { get; set; }
         public string fb29 { get; set; }
         public string fb30 { get; set; }
+
+        [Required(ErrorMessage = "此为必填项")]
+        public string fb31 { get; set; }
         public double 真实培训时间 { get; set; }
 
         public Training Training { get; set; }

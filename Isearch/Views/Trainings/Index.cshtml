@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                反馈开关
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.课程名称)
             </th>
             <th>
@@ -30,6 +33,18 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @if (item.关闭)
+                {
+                    <a asp-action="changestatus" class="btn btn-success" asp-route-id="@item.Id">开启</a>
+                }
+                else
+                {
+                    <a asp-action="changestatus" class="btn btn-warning" asp-route-id="@item.Id">关闭</a>
+                }
+
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.课程名称)
             </td>

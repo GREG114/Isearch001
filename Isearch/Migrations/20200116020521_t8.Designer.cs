@@ -4,14 +4,16 @@ using Isearch.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Isearch.Migrations
 {
     [DbContext(typeof(IsearchContext))]
-    partial class IsearchContextModelSnapshot : ModelSnapshot
+    [Migration("20200116020521_t8")]
+    partial class t8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,6 +146,9 @@ namespace Isearch.Migrations
 
                     b.Property<string>("fb20");
 
+                    b.Property<string>("fb21")
+                        .IsRequired();
+
                     b.Property<string>("fb22");
 
                     b.Property<string>("fb23");
@@ -163,9 +168,6 @@ namespace Isearch.Migrations
                     b.Property<int>("fb3");
 
                     b.Property<string>("fb30");
-
-                    b.Property<string>("fb31")
-                        .IsRequired();
 
                     b.Property<int>("fb4");
 

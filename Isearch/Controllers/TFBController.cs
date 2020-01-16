@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Isearch.Controllers
 {
-    [Authorize(Roles = "南京运管部,质量及安全管理部,users")]
+    [Authorize(Roles = "南京运管部,质量及安全管理部")]
     public class TFBController : Controller
     {
         private readonly IsearchContext _context;
@@ -46,7 +46,7 @@ namespace Isearch.Controllers
         {
             FileInfo xls = new FileInfo(filepath);
             ExcelPackage package = new ExcelPackage(xls);
-            ExcelWorksheet ws = package.Workbook.Worksheets.Add("计算机台账");//创建worksheet  
+            ExcelWorksheet ws = package.Workbook.Worksheets.Add("培训反馈记录");//创建worksheet  
             ws.Column(1).Width = 18;
             ws.Column(2).Width = 18;
             ws.Column(3).Width = 18;
@@ -81,7 +81,7 @@ namespace Isearch.Controllers
                 ws.Cells[realrow, 3].Value = tfb.Training.课程名称;
                 ws.Cells[realrow, 4].Value = tfb.Training.培训讲师;
                 ws.Cells[realrow, 5].Value = tfb.真实培训时间;
-                ws.Cells[realrow, 6].Value = tfb.fb21;
+                ws.Cells[realrow, 6].Value = tfb.fb31;
                 
 
                 for (int o = 1; o < 12; o++)
@@ -148,7 +148,7 @@ namespace Isearch.Controllers
         // GET: TFB/Create
         public IActionResult Create()
         {
-            ViewData["TrainingID"] = new SelectList(_context.Trainings, "Id", nameof(Training.整合信息));
+            ViewData["TrainingID"] = new SelectList(_context.Trainings.Where(c=>c.关闭==false), "Id", nameof(Training.整合信息));
             return View();
         }
 
@@ -158,7 +158,7 @@ namespace Isearch.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("真实培训时间,Id,fb1,fb2,fb3,fb4,fb5,fb6,fb7,fb8,fb9,fb10,fb11,fb12,fb13,fb14,fb15,fb16,fb17,fb18,fb19,fb20,fb21,fb22,fb23,fb24,fb25,fb26,fb27,fb28,fb29,fb30,TrainingID")] TrainingFeedBack trainingFeedBack)
+        public async Task<IActionResult> Create([Bind("真实培训时间,Id,fb1,fb2,fb3,fb4,fb5,fb6,fb7,fb8,fb9,fb10,fb11,fb12,fb13,fb14,fb15,fb16,fb17,fb18,fb19,fb20,fb31,fb22,fb23,fb24,fb25,fb26,fb27,fb28,fb29,fb30,TrainingID")] TrainingFeedBack trainingFeedBack)
         {
             if (ModelState.IsValid)
             {
@@ -197,7 +197,7 @@ namespace Isearch.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("真实培训时间,Id,fb1,fb2,fb3,fb4,fb5,fb6,fb7,fb8,fb9,fb10,fb11,fb12,fb13,fb14,fb15,fb16,fb17,fb18,fb19,fb20,fb21,fb22,fb23,fb24,fb25,fb26,fb27,fb28,fb29,fb30,TrainingID")] TrainingFeedBack trainingFeedBack)
+        public async Task<IActionResult> Edit(int id, [Bind("真实培训时间,Id,fb1,fb2,fb3,fb4,fb5,fb6,fb7,fb8,fb9,fb10,fb11,fb12,fb13,fb14,fb15,fb16,fb17,fb18,fb19,fb20,fb31,fb22,fb23,fb24,fb25,fb26,fb27,fb28,fb29,fb30,TrainingID")] TrainingFeedBack trainingFeedBack)
         {
             if (id != trainingFeedBack.Id)
             {

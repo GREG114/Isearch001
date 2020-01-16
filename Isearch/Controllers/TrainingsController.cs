@@ -21,6 +21,21 @@ namespace Isearch.Controllers
             _context = context;
         }
 
+
+        public IActionResult changestatus(int id)
+        {
+            var target = _context.Trainings.Find(id);
+            if (target.关闭 == false)
+            {
+                target.关闭 = true;
+            }
+            else
+            {
+                target.关闭 = false;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Trainings
         public async Task<IActionResult> Index()
         {
