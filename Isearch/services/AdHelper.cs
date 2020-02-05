@@ -190,7 +190,6 @@ namespace LxGreg.services
         public DirectoryEntry queryou(string depart)
         {
            
-            string part = "";
             try
             {
                 DirectorySearcher searcher1 = new DirectorySearcher(domain);
@@ -233,11 +232,6 @@ namespace LxGreg.services
                 DirectoryEntry obj = item.GetDirectoryEntry();
                 //  Console.WriteLine(obj.Name);
                 return obj;
-                if (rs.Count > 0)
-                {
-                    // Console.WriteLine("已存在账号"+obj.Path);//如果有了就输出一下
-                    //   return true;
-                }
             }
             return null;
 

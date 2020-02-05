@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="NEST" Version="7.5.1" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="System.DirectoryServices" Version="4.7.0-preview3.19551.4" />
   </ItemGroup>

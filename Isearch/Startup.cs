@@ -62,7 +62,7 @@ namespace Isearch
             {
                 routes.MapRoute(
                     name: "default",
-                 template: "{controller=ntq}/{action=Create}/{id?}");
+                 template: "{controller=CRMAnalysis}/{action=Index}/{id?}");
                     //template: "{controller=Works}/{action=Index}/{id?}");
             });
         }
