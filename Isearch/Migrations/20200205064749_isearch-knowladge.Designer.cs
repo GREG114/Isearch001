@@ -4,14 +4,16 @@ using Isearch.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Isearch.Migrations
 {
     [DbContext(typeof(IsearchContext))]
-    partial class IsearchContextModelSnapshot : ModelSnapshot
+    [Migration("20200205064749_isearch-knowladge")]
+    partial class isearchknowladge
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

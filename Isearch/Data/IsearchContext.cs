@@ -15,6 +15,8 @@ namespace Isearch.Models
         }
 
         public DbSet<NTQ> NTQ { get; set; }
+        public DbSet<Knowlage> Knowlage { get; set; }
+        
 
         public DbSet<Isearch.Models.ITWork> ITWork { get; set; }
  public DbSet<Training> Trainings { get; set; }
