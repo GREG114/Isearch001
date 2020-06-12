@@ -49,12 +49,13 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-<script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+    @*<script type="text/javascript" src="https://unpkg.com/wangeditor/release/wangEditor.min.js"></script>*@
+<script type="text/javascript" src="~/lib/wangEditor-3.0.16/release/wangEditor.min.js"></script>
 
 <script>
 
 
-      var E = window.wangEditor
+    var E = window.wangEditor
     var editor = new E('#editor')
     // 或者 var editor = new E( document.getElementById('editor') )
     editor.customConfig.uploadImgShowBase64 = false

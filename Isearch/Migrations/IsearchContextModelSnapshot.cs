@@ -40,6 +40,29 @@ namespace Isearch.Migrations
                     b.ToTable("Knowlage");
                 });
 
+            modelBuilder.Entity("Isearch.Models.Custin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("名单日期");
+
+                    b.Property<string>("名单来源");
+
+                    b.Property<string>("回访情况");
+
+                    b.Property<string>("地址");
+
+                    b.Property<string>("客户名称");
+
+                    b.Property<string>("电子邮件");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Custins");
+                });
+
             modelBuilder.Entity("Isearch.Models.ITWork", b =>
                 {
                     b.Property<string>("Id")
@@ -106,6 +129,39 @@ namespace Isearch.Migrations
                     b.HasKey("姓名");
 
                     b.ToTable("NTQ");
+                });
+
+            modelBuilder.Entity("Isearch.Models.QMission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreateBy");
+
+                    b.Property<DateTime>("CreateTime");
+
+                    b.Property<string>("DateModel");
+
+                    b.Property<string>("DateRange");
+
+                    b.Property<string>("Detail");
+
+                    b.Property<string>("FinishBy");
+
+                    b.Property<DateTime>("FinishTime");
+
+                    b.Property<string>("RunTime");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("VerifyMethod");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("qMissions");
                 });
 
             modelBuilder.Entity("Isearch.Models.Training", b =>

@@ -27,16 +27,17 @@
         }
         return false
     }
-
+    //阶段, logcount, currentcount
     function load() {
         $.ajax({
             type: "get",
-            url: "/CRMAnalysis/CrmLog",
+            url: "/CRMAnalysis/CrmLog1",
             success: function (e) {
                 //返回值是一个jsonarray可以直接取值或者取子对象
                 //stringify是将其中的json对象反序列化为字符串
                 strlist = e["阶段"]
-                countlist = e["阶段数量"]
+                passlist=e["logcount"]
+                countlist = e["currentcount"]
                 option = {
                     tooltip: {
                         trigger: 'axis',
@@ -45,7 +46,7 @@
                         }
                     },
                     legend: {
-                        data: strlist
+                        data: ['实际数量','已推进数量']
                     },
                     grid: {
                         left: '3%',
@@ -62,7 +63,7 @@
                     },
                     series: [
                         {
-                            name: '直接访问',
+                            name: '实际数量',
                             type: 'bar',
                             stack: '总量',
                             label: {
@@ -70,6 +71,15 @@
                                 position: 'insideRight'
                             },
                             data: countlist
+                        },{
+                            name: '已推进数量',
+                            type: 'bar',
+                            stack: '总量',
+                            //label: {
+                            //    show: true,
+                            //    position: 'insideRight'
+                            //},不要标签，否则数字标识重叠
+                            data: passlist
                         }
                     ]
                 };
@@ -83,7 +93,9 @@
         })
     }
 
-
+    window.onload = function () {
+        load()
+    }
 </script>
 
 

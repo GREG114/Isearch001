@@ -23,6 +23,8 @@ namespace Isearch.Models
 
         public DbSet<TrainingFeedBack> TrainingFeedBacks { get; set; }
 
+        public DbSet<QMission> qMissions { get; set; }
        
+        public DbSet<Custin> Custins { get; set; }
     }
 }

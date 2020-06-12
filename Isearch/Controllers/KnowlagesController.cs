@@ -24,13 +24,13 @@ namespace Isearch.Controllers
             this.env = env;
             _context = context;
         }
-
+        [AllowAnonymous]
         // GET: Knowlages
         public async Task<IActionResult> Index()
         {
             return View(await _context.Knowlage.ToListAsync());
         }
-
+        [AllowAnonymous]
         // GET: Knowlages/Details/5
         public async Task<IActionResult> Details(int? id)
         {

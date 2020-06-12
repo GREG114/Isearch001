@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Isearch.Models;
+using Isearch.services;
 
 namespace Isearch
 {
@@ -33,7 +34,8 @@ namespace Isearch
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddSingleton<ILogger, Logger>();
+            services.AddSingleton<IElastic, Elastic>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAuthentication(Microsoft.AspNetCore.Server.IISIntegration.IISDefaults.AuthenticationScheme);
             services.AddDbContext<IsearchContext>(options =>
@@ -62,7 +64,7 @@ namespace Isearch
             {
                 routes.MapRoute(
                     name: "default",
-                 template: "{controller=CRMAnalysis}/{action=Index}/{id?}");
+                 template: "{controller=NTQ}/{action=Create}/{id?}");
                     //template: "{controller=Works}/{action=Index}/{id?}");
             });
         }

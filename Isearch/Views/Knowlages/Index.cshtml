@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Isearch.Knowlage>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "知识管理目录";
 }
 
-<h1>Index</h1>
+<h1>知识管理平台</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">新建</a>
 </p>
 <table class="table">
     <thead>
@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.CreateTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModifyTime)
+                修改时间
             </th>
             <th></th>
         </tr>

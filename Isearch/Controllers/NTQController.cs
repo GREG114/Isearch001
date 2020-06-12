@@ -87,7 +87,7 @@ namespace Isearch.Controllers
                 }
                 _context.Add(nTQ);
                 await _context.SaveChangesAsync();
-                try { goelkonce();  } catch { }
+                //try { goelkonce();  } catch { }
                
                 return RedirectToAction(nameof(finish));
             }

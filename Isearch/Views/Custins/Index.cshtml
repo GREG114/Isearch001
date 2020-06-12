@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Object>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var arr = Newtonsoft.Json.Linq.JArray.FromObject(Model);
+    Newtonsoft.Json.Linq.JObject obj = arr[0] as Newtonsoft.Json.Linq.JObject;
+    foreach(var testt in obj.Properties())
+    {
+        var testtt = testt.Name;
+        var testtf = testt.Value;
+    }
+}
+
+<h1>未能录入的信息</h1>
+<p>
+    <a asp-action="Create">创建</a>
+</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var item in obj.Properties())
+                {
+                    <th>
+                        @item.Name
+                    </th>
+                }
+            </tr>
+        </thead>
+        @foreach (var item in arr)
+        {
+            obj = Newtonsoft.Json.Linq.JObject.FromObject(item);
+            <tr>
+                @foreach (var title in obj.Properties())
+                {
+                    <td>
+                        @title.Value
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+

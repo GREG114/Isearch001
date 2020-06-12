@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Isearch.Controllers
 {
-    [Authorize(Roles = "南京运管部,质量及安全管理部")]
+    
     public class TFBController : Controller
     {
         private readonly IsearchContext _context;

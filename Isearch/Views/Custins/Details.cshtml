@@ -1,0 +1,55 @@
+﻿@model Isearch.Models.Custin
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Custin</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.客户名称)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.客户名称)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.电子邮件)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.电子邮件)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.地址)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.地址)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.名单来源)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.名单来源)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.名单日期)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.名单日期)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.回访情况)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.回访情况)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
