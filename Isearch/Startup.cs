@@ -35,11 +35,14 @@ namespace Isearch
             });
 
             services.AddSingleton<ILogger, Logger>();
+            services.AddSingleton<IAKHelper, AKHelper>();
             services.AddSingleton<IElastic, Elastic>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAuthentication(Microsoft.AspNetCore.Server.IISIntegration.IISDefaults.AuthenticationScheme);
             services.AddDbContext<IsearchContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("IsearchContext")));
+            services.AddDbContext<Kcontext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("KingDeeContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +67,7 @@ namespace Isearch
             {
                 routes.MapRoute(
                     name: "default",
-                 template: "{controller=NTQ}/{action=Create}/{id?}");
+                 template: "{controller=Home}/{action=Index}/{id?}");
                     //template: "{controller=Works}/{action=Index}/{id?}");
             });
         }

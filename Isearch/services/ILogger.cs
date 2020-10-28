@@ -16,7 +16,8 @@ namespace Isearch.services
         string url = "http://ip.lxgreg.cn:19200/ysqlog/doc/";
         void ILogger.Logger(object obj)        {
 
-            req.Post(obj, url);
+            var result = req.Post(obj, url);
+            var ss = 0;
         }
     }
 

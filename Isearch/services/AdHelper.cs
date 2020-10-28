@@ -12,7 +12,7 @@ namespace LxGreg.services
         /// </summary>
         /// <param name="usname"></param>
         /// <param name="pw"></param>
-        public AdHelper(string usname,string pw)
+        public AdHelper(string usname, string pw)
         {
             Initial();
             domain.Username = usname;
@@ -29,7 +29,7 @@ namespace LxGreg.services
         {
             domain = new DirectoryEntry();
             //domain.Path = "LDAP://ad4-sh/ou=力信,dc=lixin,dc=com";
-            domain.Path = "LDAP://192.168.1.53/dc=ysq,dc=com";
+            domain.Path = "LDAP://ad2-sh/dc=ysq,dc=com";
             searcher1 = new DirectorySearcher(domain);
             searcher1.SearchScope = SearchScope.Subtree;
             searcher1.SearchRoot = domain;
@@ -131,11 +131,11 @@ namespace LxGreg.services
         /// <param name="sysid">域账号</param>
         /// <param name="newpwd">新密码</param>
         /// <returns></returns>
-        public string resetpassword(string sysid,string pd,string newpwd)
+        public string resetpassword(string sysid, string pd, string newpwd)
         {
             try
             {
-                var test= verify(sysid, pd);
+                var test = verify(sysid, pd);
                 if (!test)
                 {
                     return "密码错误，清重新输入，初始密码为Qaz123";
@@ -189,7 +189,7 @@ namespace LxGreg.services
         /// <returns></returns>
         public DirectoryEntry queryou(string depart)
         {
-           
+
             try
             {
                 DirectorySearcher searcher1 = new DirectorySearcher(domain);
@@ -266,7 +266,7 @@ namespace LxGreg.services
 
 
         }
-        public bool verify(string userId,string userPwd)
+        public bool verify(string userId, string userPwd)
         {
             try
             {
@@ -276,9 +276,9 @@ namespace LxGreg.services
                 SearchResult result = search.FindOne(); //查找第一个
                 if (null == result)   //没找到
                 {
-                   // retmsg = "cancel";
+                    // retmsg = "cancel";
                     return false;
-                    
+
                 }
                 return true;
             }
@@ -300,7 +300,7 @@ namespace LxGreg.services
 
         public string CreateGroup(string name, string parentou)
         {
-          
+
             var check = querygroup(name);
 
             if (check == null)
@@ -326,7 +326,7 @@ namespace LxGreg.services
         }
         public string CreateOU(string name, string parentou)
         {
-          
+
             var check = queryou(name);
             if (check == null)
             {
@@ -349,7 +349,7 @@ namespace LxGreg.services
         /// <param name="part"></param>
         public string CreateNewUser(string login, string name, string part, string employeeID, string email)
         {
-           
+
             string result;
             var checkuser = isex(name);
             if (checkuser != null)
@@ -382,10 +382,10 @@ namespace LxGreg.services
 
                 try
                 {
+                    object ret = newuser.Invoke("SetPassword", "Qaz123");
                     newuser.CommitChanges();
                     Enable(login);
                     newuser.AuthenticationType = AuthenticationTypes.Secure;
-                    object ret = newuser.Invoke("SetPassword", "Qaz123");
                     newuser.CommitChanges();
                     domain.Path = querygroup(part).Path;
                     domain.Properties["member"].Add(newuser.Properties["distinguishedName"].Value);
@@ -398,6 +398,7 @@ namespace LxGreg.services
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     throw ex;
                 }
 

@@ -15,16 +15,13 @@ namespace Isearch.Models
         }
 
         public DbSet<NTQ> NTQ { get; set; }
-        public DbSet<Knowlage> Knowlage { get; set; }
-        
 
-        public DbSet<Isearch.Models.ITWork> ITWork { get; set; }
- public DbSet<Training> Trainings { get; set; }
+        public DbSet<Training> Trainings { get; set; }
 
         public DbSet<TrainingFeedBack> TrainingFeedBacks { get; set; }
 
-        public DbSet<QMission> qMissions { get; set; }
-       
         public DbSet<Custin> Custins { get; set; }
+
+        // public DbSet<saleforecast> saleforecasts { get; set; }
     }
 }

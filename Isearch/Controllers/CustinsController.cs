@@ -35,18 +35,28 @@ namespace Isearch.Controllers
         }
 
         // GET: Custins
-        public IActionResult Index()
+        public IActionResult Index(string str)
         {
-
-            var url = "http://ip.lxgreg.cn:19200/custin1/doc/_search";
+            var url = "http://ip.lxgreg.cn:19200/custin2/doc/_search";
+            if (str != null)
+            {
+                url = "http://ip.lxgreg.cn:19200/custin2/doc/_search?size=2000&q=";
+               
+                    url += $"公司.keyword:*{str}* or 手机.keyword:*{str}* or 姓名.keyword:*{str}* ";
+            }
             var data = req.Get(url)["hits"]["hits"];
-
+            if (data.Count() == 0){
+                url = "http://ip.lxgreg.cn:19200/custin2/doc/_search";
+                data = req.Get(url)["hits"]["hits"];
+            }
 
             var arr = new JArray();
 
             foreach(var item in data)
             {
-                arr.Add(item["_source"]);
+                var obj = JObject.FromObject(item["_source"]);
+                obj.Add("id", item["_id"]);
+                arr.Add(obj);
             }
 
             return View(arr);
@@ -89,13 +99,12 @@ namespace Isearch.Controllers
                     {
                         Dictionary<string, dynamic> obj = new Dictionary<string, dynamic>();
                         try
-                        {
+                        {                           
                             obj = makeObj(worksheet, i);
 
                             var cuname = obj["公司"];
                             var name = obj["姓名"];
                             var mobile = obj["手机"];
-
                             var dup = query.Where(c => c.Keys.Contains("公司")).Where(c => 
                             c["公司"] == cuname
                             && c["姓名"]==obj["姓名"]
@@ -263,6 +272,14 @@ namespace Isearch.Controllers
             }
             return View(custin);
         }
+
+        public IActionResult Delk(string id)
+        {
+            //id = "RZMrl3IBuqIkqLh8LlRg";
+            var result= client.Delete<object>(id, d => d.Index("custin2"));
+            return Json(result);
+        }
+
 
         // GET: Custins/Delete/5
         public async Task<IActionResult> Delete(int? id)

@@ -3,19 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>70d0a292-f0fb-41de-bcd5-ea42f0f10bc6</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Migrations\20191128072146_itwork.cs" />
     <Compile Remove="Migrations\20191128072146_itwork.Designer.cs" />
+    <Compile Remove="Migrations\20200804085424_test1.cs" />
+    <Compile Remove="Migrations\20200804085424_test1.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Knowlages\Create.cshtml" />
-    <None Include="Views\Knowlages\Delete.cshtml" />
-    <None Include="Views\Knowlages\Details.cshtml" />
-    <None Include="Views\Knowlages\Edit.cshtml" />
-    <None Include="Views\Knowlages\Index.cshtml" />
     <None Include="wwwroot\lib\wangEditor-3.0.16\.eslintignore" />
     <None Include="wwwroot\lib\wangEditor-3.0.16\.gitattributes" />
     <None Include="wwwroot\lib\wangEditor-3.0.16\.gitignore" />

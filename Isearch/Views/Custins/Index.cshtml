@@ -5,40 +5,80 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var arr = Newtonsoft.Json.Linq.JArray.FromObject(Model);
     Newtonsoft.Json.Linq.JObject obj = arr[0] as Newtonsoft.Json.Linq.JObject;
-    foreach(var testt in obj.Properties())
+    foreach (var testt in obj.Properties())
     {
         var testtt = testt.Name;
         var testtf = testt.Value;
     }
 }
 
-<h1>未能录入的信息</h1>
+<script type="text/javascript">
+    function query() {
+        var str = $("#str").val()
+        window.location="/custins/index?str="+str
+    }
+    function keypress() {
+        if (event.keyCode == 13) {
+            query();
+        }
+    }
+    function initial() {
+        document.getElementById("str").focus();
+    }
+    window.onload = initial
+    
+</script>
+
+<h1>客户信息管理</h1>
 <p>
-    <a asp-action="Create">创建</a>
+    <input class=" form-control" id="str" placeholder="请输入关键字进行查询" onkeydown="keypress()" />
+    <a class="btn btn-outline-primary" asp-action="Create">单个追加客户信息</a>
+    <a class="btn btn-outline-primary" onclick="query()">查询</a>
 </p>
 
-    <table class="table">
+<div class="table-responsive">
+
+    <table class="table table-hover table-active table-bordered">
         <thead>
             <tr>
                 @foreach (var item in obj.Properties())
                 {
-                    <th>
-                        @item.Name
-                    </th>
-                }
+                    @if (item.Name == "地址" || item.Name == "名单日期" || item.Name == "名单来源" || item.Name == "id")
+                    {
+                        continue;
+                    }
+                <th>
+                    @item.Name
+                </th>
+            }
             </tr>
         </thead>
         @foreach (var item in arr)
         {
             obj = Newtonsoft.Json.Linq.JObject.FromObject(item);
-            <tr>
-                @foreach (var title in obj.Properties())
-                {
-                    <td>
-                        @title.Value
-                    </td>
-                }
-            </tr>
+    <tr>
+        @foreach (var title in obj.Properties())
+        {
+            @if (title.Name == "id")
+            {
+                <td>
+                    <a asp-action="Delk" class="btn btn-warning" asp-route-id="@title.Value">删除</a>
+                </td>
+            }
+
+
+
+            @if (title.Name == "地址" || title.Name == "名单日期" || title.Name == "名单来源" || title.Name == "id")
+            {
+                continue;
+            }
+            <td>
+                @title.Value
+            </td>
+
+        }
+    </tr>
         }
     </table>
 
+</div>

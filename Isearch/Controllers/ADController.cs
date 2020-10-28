@@ -42,7 +42,7 @@ namespace Isearch.Controllers
 
             return Json(result);
         }
-
+        [HttpPost]
         public IActionResult ApiCU([FromBody]adu adu)
         {
             AdHelper ad = new AdHelper("radmin","rer0y%");

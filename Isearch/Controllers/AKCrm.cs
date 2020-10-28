@@ -58,10 +58,12 @@ namespace Isearch.Controllers
             var writer = req.GetRequestStream();
             writer.Write(byteData, 0, len);
             writer.Close();
+            JObject result;
             var res = req.GetResponse();
             var str = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding("utf-8")).ReadToEnd().ToString();
-            JObject result = JsonConvert.DeserializeObject<JObject>(str);
+            result = JsonConvert.DeserializeObject<JObject>(str);
             req.Abort();
+        
             return result;
 
         }
@@ -90,7 +92,7 @@ namespace Isearch.Controllers
                 if (Convert.ToInt32(result["code"]) != 0)
                 {
                     //  obj.Add("result", JObject.FromObject(result));
-                    return JsonConvert.SerializeObject(result);
+                    return result["message"].ToString();
                 }
                 else
                 {
